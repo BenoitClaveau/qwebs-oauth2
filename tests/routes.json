@@ -1,0 +1,11 @@
+{
+    "services": [
+        { "name": "$oauth2", "location": "../lib/qwebs-oauth2"},
+        { "name": "$oauth2-model", "location": "./services/oauth2-model"},
+        { "name": "$http", "location": "qwebs-http"}
+    ],
+    "locators": [
+        { "post": "/oauth/token", "service": "$oauth2", "method": "token" },
+        { "get": "/secret", "service": "$oauth2", "method": "secret" }
+    ]
+}

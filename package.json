@@ -1,0 +1,41 @@
+{
+    "name": "qwebs-oauth2",
+    "version": "0.1.96",
+    "description": "Create an aouth2 provider for qwebs.",
+    "main": "index.js",
+    "dependencies": {
+        "oauth2-server": "latest",
+        "qwebs": "^0.2.9"
+    },
+    "devDependencies": {
+        "coveralls": "latest",
+        "istanbul": "latest",
+        "jasmine": "latest",
+        "qwebs-http": "latest"
+    },
+    "scripts": {
+        "test": "node node_modules/jasmine/bin/jasmine tests/*.spec.js",
+        "cover": "node_modules/.bin/istanbul cover node_modules/jasmine/bin/jasmine.js tests/*.spec.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BenoitClaveau/qwebs-oauth2.git"
+    },
+    "keywords": [
+        "qwebs",
+        "oauth2",
+        "authenticate",
+        "authorize",
+        "token",
+        "secret"
+    ],
+    "author": {
+        "name": "Benoît Claveau",
+        "email": "benoit.claveau@gmail.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/BenoitClaveau/qwebs-oauth2/issues"
+    },
+    "homepage": "https://github.com/BenoitClaveau/qwebs-oauth2"
+}
