@@ -4,8 +4,8 @@
     "description": "Create an aouth2 provider for qwebs.",
     "main": "index.js",
     "dependencies": {
-        "oauth2-server": "latest",
-        "qwebs": "^0.2.9"
+        "oauth2-server": "^3.0.0-b4",
+        "qwebs": "^0.2.12"
     },
     "devDependencies": {
         "coveralls": "latest",

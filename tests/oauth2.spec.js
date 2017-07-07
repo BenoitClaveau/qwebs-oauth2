@@ -16,9 +16,6 @@ describe("OAuth2", () => {
         let client = new Client();
         return client.get({ url: "http://localhost:3000/secret" }).then(res => {
             expect(res.statusCode).toEqual(200);
-        }).then(done).catch(error => {
-            //console.error(error);
-            fail(error);
-        })
+        }).then(done).catch(fail);
     }, 30000);
 });
