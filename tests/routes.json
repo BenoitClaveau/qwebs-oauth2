@@ -1,6 +1,6 @@
 {
     "services": [
-        { "name": "$oauth2", "location": "../lib/qwebs-oauth2" },
+        { "name": "$oauth2", "location": "./services/my-qwebs-oauth2" },
         { "name": "$oauth2-options", "location": "./services/oauth2-options" },
         { "name": "$oauth2-client", "location": "./services/oauth2-client" },
         { "name": "$http", "location": "qwebs-http" }
@@ -8,6 +8,7 @@
     "locators": [
         { "post": "/oauth/token", "service": "$oauth2", "method": "token" },
         { "get": "/secret", "service": "$oauth2", "method": "secret" },
+        { "get": "/public", "service": "$oauth2", "method": "public" },
         { "get": "/redirect", "service": "$oauth2-client", "method": "redirect" }
     ]
 }

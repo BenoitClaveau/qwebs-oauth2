@@ -13,7 +13,7 @@ class OAuth2Options {
 
     constructor() {
         this.clients = [
-            { clientId: "user", grants: ["authorization_code"], redirectUris: ["http://localhost:3000/redirect"] }
+            { client: { id: "user" }, grants: ["authorization_code"], redirectUris: ["http://localhost:3000/redirect"] }
         ];
         this.tokens = [
             { accessToken: "1234", user: {}, accessTokenExpiresAt: moment().add(1,'days').toDate() }
@@ -29,28 +29,47 @@ class OAuth2Options {
             saveAuthorizationCode: this.saveAuthorizationCode.bind(this),
             getClient: this.getClient.bind(this),
             getAccessToken: this.getAccessToken.bind(this),
+
+            getAuthorizationCode: this.getAuthorizationCode.bind(this),
+            revokeAuthorizationCode: this.revokeAuthorizationCode.bind(this),
+            saveToken: this.saveToken.bind(this),
+            
         }
     }
 
     /* OAuth2 */
 
+    getAuthorizationCode(authorizationCode) {
+        return this.authorizations.filter(e => e.authorizationCode == authorizationCode).shift();
+    }
+
+    revokeAuthorizationCode(authorization) {
+        return this.authorizations.splice(authorization, 1);
+    }
+
+    saveToken(token, client, user) {
+        let data = Object.assign({
+            client: client,
+            user: user
+        }, token);
+        this.tokens.push(data);
+        return data;
+    }
+
     saveAuthorizationCode(token, client, user) {
-        this.authorizations.push({ token: token, client: client, user: user });
+        this.authorizations.push(Object.assign({
+            client: client,
+            user: user
+        }, token));
         return token;
     }
 
     getClient(clientId, clientSecret) {
-        return this.clients.filter(e => e.clientId == clientId).shift();
+        return this.clients.filter(e => e.client.id == clientId).shift();
     }
 
     getAccessToken(bearerToken) {
         return this.tokens.filter(e => e.accessToken == bearerToken).shift();
-    }
-
-    /* ----------------- */
-
-    getAuthorization(authorizationCode) {
-        return this.authorizations.map(e => e.token).filter(e => e.authorizationCode == authorizationCode).shift();
     }
 };
 

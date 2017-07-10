@@ -5,13 +5,13 @@
     "main": "index.js",
     "dependencies": {
         "oauth2-server": "^3.0.0-b4",
-        "qwebs": "^0.2.12"
+        "qwebs": "^0.2.13"
     },
     "devDependencies": {
         "coveralls": "latest",
         "istanbul": "latest",
         "jasmine": "latest",
-        "moment": "^2.18.1",
+        "moment": "latest",
         "qwebs-http": "latest"
     },
     "scripts": {

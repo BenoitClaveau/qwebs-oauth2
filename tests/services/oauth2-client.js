@@ -15,9 +15,9 @@ class OAuth2Client {
     }
 
     redirect(request, response) {
-
-        var oauth = this.$oauth2Options.getAuthorization(request.query.code);
-        response.send({ request: request, statusCode: 200, content: oauth });
+        var data = this.$oauth2Options.getAuthorizationCode(request.query.code);
+        Object.assign(data, request.query)
+        response.send({ request: request, statusCode: 200, content: data });
     }
 };
 
