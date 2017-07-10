@@ -15,12 +15,12 @@ describe("OAuth2", () => {
 
     beforeAll(setup.run.bind(setup));
 
-    // it("get secret", done => {   
-    //     return client.get({ url: "http://localhost:3000/secret?response_type=code&client_id=user&redirect_uri?http://localhost:3000/redirect&access_token=1234", json:true }).then(res => {
-    //         expect(res.statusCode).toEqual(200);
-    //         expect(res.body.authorizationCode).not.toBeUndefined();
-    //     }).catch(fail).then(done);
-    // }, 30000);
+    it("get secret", done => {   
+        return client.get({ url: "http://localhost:3000/secret?response_type=code&client_id=user&redirect_uri?http://localhost:3000/redirect", json:true }).then(res => {
+            expect(res.statusCode).toEqual(200);
+            expect(res.body.authorizationCode).not.toBeUndefined();
+        }).catch(fail).then(done);
+    }, 30000);
 
     // it("get secret with state", done => {   
     //     return client.get({ url: "http://localhost:3000/secret?response_type=code&client_id=user&redirect_uri?http://localhost:3000/redirect&access_token=1234&state=mycode", json:true }).then(res => {
@@ -51,17 +51,19 @@ describe("OAuth2", () => {
     // }, 30000);
 
 
-    it("get secret", done => {
-        let options = {
-            url: "http://localhost:3000/public",
-            auth: {
-                bearer: '12344'
-            },
-            json: true
-        }
-        return client.get(options).then(res => {
-            expect(res.statusCode).toEqual(200);
-            expect(res.body.user).not.toBeUndefined();
-        }).catch(fail).then(done);
-    }, 30000);
+    // it("get secret", done => {
+    //     let options = {
+    //         url: "http://localhost:3000/verify",
+    //         auth: {
+    //             bearer: '1234'  //access token
+    //         },
+    //         json: true
+    //     }
+    //     return client.get(options).then(res => {
+    //         expect(res.statusCode).toEqual(200);
+    //         expect(res.body.accessToken).not.toBeUndefined();
+    //         expect(res.body.user).not.toBeUndefined();
+    //     }).catch(fail).then(done);
+    // }, 30000);
 });
+

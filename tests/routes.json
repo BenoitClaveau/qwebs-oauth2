@@ -8,7 +8,7 @@
     "locators": [
         { "post": "/oauth/token", "service": "$oauth2", "method": "token" },
         { "get": "/secret", "service": "$oauth2", "method": "secret" },
-        { "get": "/public", "service": "$oauth2", "method": "public" },
+        { "get": "/verify", "service": "$oauth2", "method": "verify" },
         { "get": "/redirect", "service": "$oauth2-client", "method": "redirect" }
     ]
 }

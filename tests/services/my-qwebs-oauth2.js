@@ -9,13 +9,15 @@
 const OAuth2Service = require("../../lib/qwebs-oauth2");
 const DataError = require("qwebs").DataError;
 
+
+//ONLY for TEST
 class MyOAuth2Service extends OAuth2Service {
     constructor($oauth2Options) {
         super($oauth2Options)
     }
 
     //add new route
-    public(request, response) {
+    verify(request, response) {
         return this.authenticate(request, response).then(res => {
             return response.send(res);
         }).catch(error => {
