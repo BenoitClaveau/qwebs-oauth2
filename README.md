@@ -8,10 +8,44 @@
 ## Features
 
   * [Qwebs](https://www.npmjs.com/package/qwebs)
-  * [OAuth2](https://github.com/oauthjs/node-oauth2-server)
+  * [OAuth2](http://oauth2-server.readthedocs.io/en/latest/api/oauth2-server.html)
   * Singleton
 
-## Define OAuth2 routes in routes.json
+## Override the default OAuth2 model
+
+```my-oauth2-model.js
+"use strict";
+
+const DataError = require("qwebs").DataError;
+const Options = require("qwebs-oauth2).Options;
+
+class OAuth2Options extends Options {
+
+    getAccessToken(bearerToken) {
+        throw new DataError({ message: "Not implemented" });
+    }
+
+    getClient(clientId, clientSecret) {
+        throw new DataError({ message: "Not implemented" });
+    }
+
+    getRefreshToken(refreshToken) {
+        throw new DataError({ message: "Not implemented" });
+    }
+
+    getUser(username, password) {
+        throw new DataError({ message: "Not implemented" });
+    }
+
+    saveToken(token, client, user) {
+        throw new DataError({ message: "Not implemented" });
+    }
+};
+
+exports = module.exports = OAuth2Model;
+```
+
+## Define OAuth2 and inject OAuth2 model as $oauth2-model in routes.json
 
 ```routes.json
 {

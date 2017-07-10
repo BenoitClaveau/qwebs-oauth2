@@ -7,3 +7,4 @@
 'use strict';
 
 module.exports = require('./lib/qwebs-oauth2');
+module.exports.Model = require('./lib/services/model');
