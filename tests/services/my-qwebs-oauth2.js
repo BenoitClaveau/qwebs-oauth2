@@ -13,16 +13,8 @@ const DataError = require("qwebs").DataError;
 //ONLY for TEST
 class MyOAuth2Service extends OAuth2Service {
     constructor($oauth2Options) {
-        super($oauth2Options)
-    }
-
-    //add new route
-    verify(request, response) {
-        return this.authenticate(request, response).then(res => {
-            return response.send(res);
-        }).catch(error => {
-            return response.send(error);
-        });
+        super($oauth2Options);
+        
     }
 }
 
