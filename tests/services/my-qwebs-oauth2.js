@@ -6,16 +6,13 @@
 
 "use strict";
 
-const OAuth2Service = require("../../lib/qwebs-oauth2");
+const OAuth2MemoryOptions = require("qwebs-oauth2").OAuth2MemoryOptions;
 const DataError = require("qwebs").DataError;
 
-
-//ONLY for TEST
-class MyOAuth2Service extends OAuth2Service {
-    constructor($oauth2Options) {
-        super($oauth2Options);
-        
+class OAuth2Options extends OAuth2MemoryOptions {
+    constructor() {
+        super();
     }
 }
 
-exports = module.exports = MyOAuth2Service;
+exports = module.exports = OAuth2Options;
